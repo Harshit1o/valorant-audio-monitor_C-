@@ -1,0 +1,65 @@
+@echo off
+echo ========================================
+echo   VALORANT Audio Monitor Installer
+echo ========================================
+echo.
+
+REM Get current directory
+set "CURRENT_DIR=%~dp0"
+set "EXE_PATH=%CURRENT_DIR%C#_sdk.exe"
+
+REM Check if exe exists
+if not exist "%EXE_PATH%" (
+    echo ERROR: C#_sdk.exe not found!
+    echo Please ensure C#_sdk.exe is in the same folder as this installer.
+    pause
+    exit /b 1
+)
+
+echo Found C#_sdk.exe
+echo.
+
+REM Create program folder in Program Files
+set "INSTALL_DIR=%PROGRAMFILES%\VALORANT Audio Monitor"
+echo Creating installation directory...
+mkdir "%INSTALL_DIR%" 2>nul
+
+REM Copy executable
+echo Installing executable...
+copy "%EXE_PATH%" "%INSTALL_DIR%\" >nul
+if errorlevel 1 (
+    echo ERROR: Failed to copy executable. Run as Administrator.
+    pause
+    exit /b 1
+)
+
+REM Add to startup
+echo Adding to Windows startup...
+set "STARTUP_DIR=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
+echo @echo off > "%STARTUP_DIR%\VALORANT_Audio_Monitor.bat"
+echo cd /d "%INSTALL_DIR%" >> "%STARTUP_DIR%\VALORANT_Audio_Monitor.bat"
+echo start "" "C#_sdk.exe" >> "%STARTUP_DIR%\VALORANT_Audio_Monitor.bat"
+
+echo.
+echo ========================================
+echo   Installation Complete!
+echo ========================================
+echo.
+echo The VALORANT Audio Monitor has been installed to:
+echo   %INSTALL_DIR%
+echo.
+echo It will automatically start when Windows boots.
+echo.
+echo To start it now, press any key...
+pause >nul
+
+cd /d "%INSTALL_DIR%"
+start "" "C#_sdk.exe"
+
+echo Program started! Check the console window for status.
+echo.
+echo To uninstall, delete:
+echo   - %INSTALL_DIR%
+echo   - %STARTUP_DIR%\VALORANT_Audio_Monitor.bat
+echo.
+pause
