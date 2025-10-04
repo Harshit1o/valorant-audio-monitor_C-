@@ -11,9 +11,10 @@
 ## Download & Install
 
 ### Quick Install (Windows)
-1. **Download** the latest release: [Download C#_sdk.exe](https://github.com/yourusername/valorant-audio-monitor/releases)
-2. **Run** `install.bat` as Administrator
-3. **Done!** The monitor will start automatically with Windows
+1. **Download** the latest release: [Download C#_sdk.exe](https://github.com/Harshit1o/valorant-audio-monitor_C-/releases)
+2. **Download** the installer: [Download install.bat](https://github.com/Harshit1o/valorant-audio-monitor_C-/raw/master/install.bat)
+3. **Run** `install.bat` as Administrator
+4. **Done!** The monitor will start automatically with Windows
 
 ### Manual Install
 1. Download `C#_sdk.exe`
