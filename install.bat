@@ -6,17 +6,17 @@ echo.
 
 REM Get current directory
 set "CURRENT_DIR=%~dp0"
-set "EXE_PATH=%CURRENT_DIR%C#_sdk.exe"
+set "EXE_PATH=%CURRENT_DIR%VALORANT Audio Monitor.exe"
 
 REM Check if exe exists
 if not exist "%EXE_PATH%" (
-    echo ERROR: C#_sdk.exe not found!
-    echo Please ensure C#_sdk.exe is in the same folder as this installer.
+    echo ERROR: VALORANT Audio Monitor.exe not found!
+    echo Please ensure VALORANT Audio Monitor.exe is in the same folder as this installer.
     pause
     exit /b 1
 )
 
-echo Found C#_sdk.exe
+echo Found VALORANT Audio Monitor.exe
 echo.
 
 REM Create program folder in Program Files
@@ -38,7 +38,7 @@ echo Adding to Windows startup...
 set "STARTUP_DIR=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
 echo @echo off > "%STARTUP_DIR%\VALORANT_Audio_Monitor.bat"
 echo cd /d "%INSTALL_DIR%" >> "%STARTUP_DIR%\VALORANT_Audio_Monitor.bat"
-echo start "" "C#_sdk.exe" >> "%STARTUP_DIR%\VALORANT_Audio_Monitor.bat"
+echo start "" "VALORANT Audio Monitor.exe" >> "%STARTUP_DIR%\VALORANT_Audio_Monitor.bat"
 
 echo.
 echo ========================================
@@ -54,7 +54,7 @@ echo To start it now, press any key...
 pause >nul
 
 cd /d "%INSTALL_DIR%"
-start "" "C#_sdk.exe"
+start "" "VALORANT Audio Monitor.exe"
 
 echo Program started! Check the console window for status.
 echo.
